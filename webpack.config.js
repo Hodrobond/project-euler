@@ -6,7 +6,7 @@ module.exports = {
       "0001_0010": './src/presentations/0001_0010.js'
     },
     output: {
-        path: path.join(__dirname, "dist/"),
+        path: path.join(__dirname, "docs/"),
         filename: "[name]/[name].bundle.js"
     },
     module: {
