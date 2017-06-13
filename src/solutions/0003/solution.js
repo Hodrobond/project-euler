@@ -15,7 +15,7 @@ export function getSolution(){
       //The last factor will be the largest
       if(n === 1)
         return i;
-      i=1;
+      i--;
     }
   }
 }
