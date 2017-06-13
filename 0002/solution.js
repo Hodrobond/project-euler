@@ -8,7 +8,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 find the sum of the even-valued terms.
 */
 
-function getSolution(){
+export function getSolution(){
   var maxFibonacciValue = 4000000;
   var prev = 1;
   var current = 2;
@@ -23,8 +23,4 @@ function getSolution(){
       sum += current
   }
   return sum;
-}
-
-module.exports = {
-  getSolution
 }

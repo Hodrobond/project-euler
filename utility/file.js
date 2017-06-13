@@ -1,6 +1,6 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-function fetchJSONFile(path, callback) {
+export function fetchJSONFile(path, callback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4) {
@@ -12,8 +12,4 @@ function fetchJSONFile(path, callback) {
     };
     httpRequest.open('GET', path);
     httpRequest.send();
-}
-
-module.exports = {
-  fetchJSONFile
 }

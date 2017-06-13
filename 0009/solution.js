@@ -8,7 +8,7 @@ There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 */
 
-function getSolution() {
+export function getSolution() {
   for(var i=1; i<1000; i++){
     for(var j=1; j<1000; j++){
       var k = Math.sqrt(i*i+j*j);
@@ -19,8 +19,4 @@ function getSolution() {
       }
     }
   }
-}
-
-module.exports = {
-  getSolution
 }

@@ -11,15 +11,11 @@ numbers and the square of the sum is 3025 − 385 = 2640.
 Find the difference between the sum of the squares of the first one hundred
 natural numbers and the square of the sum.
 */
-var numbers = require('../utility/numbers');
+import {getSumOfSquares, getSquareOfSum} from '../utility/numbers';
 
-function getSolution(){
+export function getSolution(){
   var n = 100;
-  var sumOfSquares = numbers.getSumOfSquares(n);
-  var squareOfSums = numbers.getSquareOfSum(n);
+  var sumOfSquares = getSumOfSquares(n);
+  var squareOfSums = getSquareOfSum(n);
   return (squareOfSums - sumOfSquares);
-}
-
-module.exports = {
-  getSolution
 }

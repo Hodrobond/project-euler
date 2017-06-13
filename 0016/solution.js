@@ -3,15 +3,11 @@
 
 What is the sum of the digits of the number 2^1000?
 */
-var bigInt = require("../utility/BigInteger.min.js")
+import bigInt from "big-integer"
 
-function getSolution(){
+export function getSolution(){
   var largeNum = bigInt(2).pow(1000);
   return largeNum.toString().split("").reduce(function(acc, val, index, arr){
     return parseInt(acc) + parseInt(val);
   })
-}
-
-module.exports = {
-  getSolution
 }

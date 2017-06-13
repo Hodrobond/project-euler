@@ -1,4 +1,4 @@
-function isPalindrome(word){
+export function isPalindrome(word){
   if(typeof word === "number")
     word = word.toString();
   var halfLength = Math.floor(word.length/2);
@@ -9,7 +9,7 @@ function isPalindrome(word){
   return true;
 }
 
-function getPermutations(inputArr){
+export function getPermutations(inputArr){
   var results = [];
 
   function permute(arr, memo) {
@@ -28,9 +28,4 @@ function getPermutations(inputArr){
   }
 
   return permute(inputArr);
-}
-
-module.exports = {
-  isPalindrome,
-  getPermutations
 }

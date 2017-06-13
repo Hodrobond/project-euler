@@ -1,13 +1,13 @@
-var a0011 = require('../0011/solution');
-var a0012 = require('../0012/solution');
-var a0013 = require('../0013/solution');
-var a0014 = require('../0014/solution');
-var a0015 = require('../0015/solution');
-var a0016 = require('../0016/solution');
-var a0017 = require('../0017/solution');
-var a0018 = require('../0018/solution');
-var a0019 = require('../0019/solution');
-var a0020 = require('../0020/solution');
+import * as a0011 from "../0011/solution";
+import * as a0012 from "../0012/solution";
+import * as a0013 from "../0013/solution";
+import * as a0014 from "../0014/solution";
+import * as a0015 from "../0015/solution";
+import * as a0016 from "../0016/solution";
+import * as a0017 from "../0017/solution";
+import * as a0018 from "../0018/solution";
+import * as a0019 from "../0019/solution";
+import * as a0020 from "../0020/solution";
 
 var assert = require('assert');
 

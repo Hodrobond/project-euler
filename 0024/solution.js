@@ -9,14 +9,10 @@ lexicographic permutations of 0, 1 and 2 are:
 What is the millionth lexicographic permutation of the digits
 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 */
-var words = require('../utility/words');
+import {getPermutations} from '../utility/words';
 
-function getSolution(){
+export function getSolution(){
   var input = [0,1,2,3,4,5,6,7,8,9];//[0,1,2,3,4,5,6,7,8,9];
   var permutations = words.getPermutations(input);
   return permutations[999999].join("");
-}
-
-module.exports = {
-  getSolution
 }

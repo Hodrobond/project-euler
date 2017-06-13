@@ -5,13 +5,13 @@ from 1 to 10 without any remainder.
 What is the smallest positive number that is evenly divisible by
 all of the numbers from 1 to 20?
 */
-var numbers = require('../utility/numbers');
+import {getPrimeFactors} from '../utility/numbers';
 
-function getSolution(){
+export function getSolution(){
   var n = 20;
   var factors = [];
   for(var i=2; i<=n; i++){
-    var fact = numbers.getPrimeFactors(i);
+    var fact = getPrimeFactors(i);
     var tempFactors = factors.slice();
     for(var j=0; j<fact.length;j++){
       var index = tempFactors.indexOf(fact[j]);
@@ -26,8 +26,4 @@ function getSolution(){
   return factors.reduce(function(acc, val, index, arr){
     return acc * val;
   });
-}
-
-module.exports = {
-  getSolution
 }

@@ -1,4 +1,4 @@
-function getPrimeFactors(n){
+export function getPrimeFactors(n){
   var factors = [1];
   for(var i=2; i<=n; i++){
     if(n%i === 0){
@@ -12,7 +12,7 @@ function getPrimeFactors(n){
   return [1];
 }
 
-function getFactors(n){
+export function getFactors(n){
   let arr = [1],
     i = 2,
     max = Math.floor(Math.sqrt(n));
@@ -31,7 +31,7 @@ function getFactors(n){
   return arr.sort((a, b) => a - b);
 }
 
-function sievePrimes(n){
+export function sievePrimes(n){
   var n = 2000000;
   var arr = [];
   var primes = [2];
@@ -53,7 +53,7 @@ function sievePrimes(n){
   return primes;
 }
 
-function getSumOfSquares(n){
+export function getSumOfSquares(n){
   var product = 0;
   for(var i=0; i<=n; i++){
     product += (i*i);
@@ -61,7 +61,7 @@ function getSumOfSquares(n){
   return product;
 }
 
-function getSquareOfSum(n){
+export function getSquareOfSum(n){
   var sum = 0;
   for(var i=0; i<=n; i++){
     sum += i;
@@ -69,7 +69,7 @@ function getSquareOfSum(n){
   return (sum*sum);
 }
 
-function isPrime(n){
+export function isPrime(n){
   var half = Math.floor(n/2);
   for(var i=2; i<=half; i++){
     if(n%i === 0)
@@ -78,11 +78,11 @@ function isPrime(n){
   return true;
 }
 
-function toWords(num){
+export function toWords(num){
   var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
   var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
   if ((num = num.toString()).length > 9) return 'overflow';
-  n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+  var n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
   if (!n) return; var str = '';
   str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
   str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
@@ -92,7 +92,7 @@ function toWords(num){
   return str;
 }
 
-function isAbundant(num){
+export function isAbundant(num){
   var factors = getFactors(num);
   var sum = 0;
   for(var i=0; i<factors.length; i++){
@@ -103,7 +103,7 @@ function isAbundant(num){
   return sum > num;
 }
 
-function getAbundant(upperLimit){
+export function getAbundant(upperLimit){
   var abundant = [];
   for(var i=1; i<=upperLimit; i++){
     if(isAbundant(i))
@@ -112,7 +112,7 @@ function getAbundant(upperLimit){
   return abundant;
 }
 
-function getRepeatingCycleSize(num){
+export function getRepeatingCycleSize(num){
     var numerator = 1;
     var numerators = [];
     var numeratorDigits = [];
@@ -146,18 +146,4 @@ function getRepeatingCycleSize(num){
         //get the next numerator
         numerator = numerator % num;
     }
-}
-
-
-module.exports = {
-  getPrimeFactors,
-  getFactors,
-  sievePrimes,
-  getSumOfSquares,
-  getSquareOfSum,
-  isPrime,
-  toWords,
-  isAbundant,
-  getAbundant,
-  getRepeatingCycleSize
 }

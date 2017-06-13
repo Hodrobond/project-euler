@@ -6,8 +6,9 @@ and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
 Find the sum of the digits in the number 100!
 */
-var bigInt = require("../utility/BigInteger.min.js")
-function getSolution(){
+import bigInt from "big-integer"
+
+export function getSolution(){
   var product = bigInt(1);
 
   for(var i=1; i<=100; i++){
@@ -20,8 +21,4 @@ function getSolution(){
     ans += parseInt(product[i]);
   }
   return ans;
-}
-
-module.exports = {
-  getSolution
 }

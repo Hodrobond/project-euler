@@ -4,21 +4,16 @@ By listing the first six prime numbers:
 
 What is the 10 001st prime number?
 */
-var numbers = require('../utility/numbers');
+import {isPrime} from '../utility/numbers'
 
-function getSolution(n){
+export function getSolution(n){
   var n = 10001;
   var primes = [2];
   var i = 3;
   while(primes.length < n){
-    if(numbers.isPrime(i))
+    if(isPrime(i))
       primes.push(i);
     i+=2;
   }
   return primes[primes.length - 1];
-}
-
-
-module.exports = {
-  getSolution
 }

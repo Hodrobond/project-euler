@@ -18,15 +18,15 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle
 in its decimal fraction part.
 */
 
-var numbers = require('../utility/numbers');
-var bigInt = require("../utility/BigInteger.min.js")
+import {getPrimeFactors} from '../utility/numbers'
+import bigInt from "big-integer"
 
-function getSolution(){
+export function getSolution(){
   var upper = 1000;//1000;
   var largestLength = 0;
   var largestIndex = 0;
   for(var i = 1; i < upper; i++){
-    var primeFactors = numbers.getPrimeFactors(i).splice(1); //remove 1
+    var primeFactors = getPrimeFactors(i).splice(1); //remove 1
     var length = 0;
     var modulo = 2;
     for(var j=0; j<primeFactors.length; j++){
@@ -53,9 +53,4 @@ function getSolution(){
     }
   }
   return largestIndex;
-}
-
-
-module.exports = {
-  getSolution
 }

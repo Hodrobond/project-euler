@@ -17,11 +17,11 @@ is less than this limit.
 Find the sum of all the positive integers which cannot be written as the sum
 of two abundant numbers.
 */
-var numbers = require('../utility/numbers');
+import {getAbundant} from '../utility/numbers';
 //upper bound: 28123 (inclusive)
-function getSolution(){
+export function getSolution(){
   var upper = 28123;//28123;
-  var abundant = numbers.getAbundant(upper);
+  var abundant = getAbundant(upper);
   var summed = [];
   var totalSum = 0;
   for(var i=0; i<abundant.length - 1; i++){
@@ -38,8 +38,4 @@ function getSolution(){
     }
   }
   return (upper)*(upper+1)/2 - totalSum;
-}
-
-module.exports = {
-  getSolution
 }

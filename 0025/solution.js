@@ -20,9 +20,9 @@ The 12th term, F12, is the first term to contain three digits.
 
 What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 */
-var bigInt = require("../utility/BigInteger.min.js")
+import bigInt from "big-integer"
 
-function getSolution(){
+export function getSolution(){
   var maxDigits = 1000;//1000;
   var prev = bigInt(1);
   var current = bigInt(2);
@@ -36,8 +36,4 @@ function getSolution(){
     count++;
   }
   return count;
-}
-
-module.exports = {
-  getSolution
 }

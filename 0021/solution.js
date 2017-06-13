@@ -10,16 +10,16 @@ and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and
 
 Evaluate the sum of all the amicable numbers under 10000.
 */
-var numbers = require('../utility/numbers');
+import {getFactors} from '../utility/numbers';
 
-function getSolution(){
+export function getSolution(){
   var factorSumArr = [];
   var totalSum = 0;
   for(var i=0; i<10000; i++){
-    var firstSum = numbers.getFactors(i).reduce(function(acc, val, index, arr){
+    var firstSum = getFactors(i).reduce(function(acc, val, index, arr){
       return parseInt(acc) + parseInt(val);
     });
-    var secondSum = numbers.getFactors(firstSum).reduce(function(acc, val, index, arr){
+    var secondSum = getFactors(firstSum).reduce(function(acc, val, index, arr){
       return parseInt(acc) + parseInt(val);
     });
     if(secondSum == i && firstSum !== i){
@@ -27,8 +27,4 @@ function getSolution(){
     }
   }
   return totalSum;
-}
-
-module.exports = {
-  getSolution
 }

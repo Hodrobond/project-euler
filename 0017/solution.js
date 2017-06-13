@@ -11,19 +11,15 @@ forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20
 letters. The use of "and" when writing out numbers is in compliance with British
 usage.
 */
-var numbers = require('../utility/numbers');
+import {toWords} from '../utility/numbers';
 
-function getSolution(){
+export function getSolution(){
   function getSumTo(n){
     var totalCount = 0;
     for(var i=0; i<=n; i++){
-      totalCount += numbers.toWords(i).replace(/\ /g, "").length;
+      totalCount += toWords(i).replace(/\ /g, "").length;
     }
     return totalCount;
   }
   return getSumTo(1000);
-}
-
-module.exports = {
-  getSolution
 }

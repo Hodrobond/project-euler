@@ -29,7 +29,7 @@ function getCollatzChainLength(n){
   return chainCount;
 }
 
-function getSolution(n){
+export function getSolution(n){
   var n = 1000000;
   var bestLength = 0;
   var bestNum = 0;
@@ -41,8 +41,4 @@ function getSolution(n){
     }
   }
   return bestNum;
-}
-
-module.exports = {
-  getSolution
 }

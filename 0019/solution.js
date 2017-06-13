@@ -14,7 +14,7 @@ unless it is divisible by 400.
 How many Sundays fell on the first of the month during the twentieth century
 (1 Jan 1901 to 31 Dec 2000)?
 */
-function getSolution(){
+export function getSolution(){
   var start = new Date("1901-01-01");
   var finish = new Date("2000-12-31");
   var dayMilliseconds = 1000 * 60 * 60 * 24;
@@ -31,7 +31,4 @@ function getSolution(){
     start = new Date(+start + dayMilliseconds);
   }
   return sundays;
-}
-module.exports = {
-  getSolution
 }

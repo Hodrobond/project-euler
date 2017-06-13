@@ -5,8 +5,7 @@ the right and down, there are exactly 6 routes to the bottom right corner.
 How many such routes are there through a 20×20 grid?
 */
 
-
-function getSolution(){
+export function getSolution(){
   var numPaths = [];
   var getLattices = function (width, height) {
       numPaths[width] = numPaths[width] || []
@@ -25,8 +24,4 @@ function getSolution(){
       return routes;
   };
   return getLattices(20,20);
-}
-
-module.exports = {
-  getSolution
 }

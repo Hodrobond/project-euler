@@ -21,10 +21,10 @@ Find the product of the coefficients, aa and bb, for the quadratic expression
 that produces the maximum number of primes for consecutive values of nn,
 starting with n=0n=0.
 */
-var bigInt = require("../utility/BigInteger.min.js")
-var numbers = require("../utility/numbers.js")
+import bigInt from "big-integer"
+import {sievePrimes, isPrime} from "../utility/numbers.js";
 
-var primes = numbers.sievePrimes(1000000);
+var primes = sievePrimes(1000000);
 
 function checkSieveForPrimes(n){
   for(var i=0; i<primes.length; i++){
@@ -37,16 +37,16 @@ function checkSieveForPrimes(n){
   }
 }
 
-function getSolution(){
+export function getSolution(){
   var largestLength = 0;
   var largestIndex = 0;
   for(var a=1000; a>-1000;a--){
     for(var b=1000; b>0; b--){
       var n=1;
-      var isPrime = true;
-      while(isPrime){
+      var isPrimeNum = true;
+      while(isPrimeNum){
         var evaluated = bigInt(n).pow(2).add(bigInt(a).multiply(n)).add(b);
-        isPrime = numbers.isPrime(Math.abs(evaluated));
+        isPrimeNum = isPrime(Math.abs(evaluated));
 //        checkSieveForPrimes();
         n++;
       }
@@ -57,8 +57,4 @@ function getSolution(){
     }
   }
   return largestIndex.a * largestIndex.b;
-}
-
-module.exports = {
-  getSolution
 }

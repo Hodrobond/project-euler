@@ -2,6 +2,9 @@
   "name": "Project_Euler",
   "version": "1.0.0",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --require babel-register"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
   }
 }
