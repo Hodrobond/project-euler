@@ -44,7 +44,7 @@
   var timeIncrement = 25;
   var time = 0;
   function showDemo1(){
-    for(var i=1; i<=1000; i++){
+    for(var i=1; i<1000; i++){
       (function(i, time){
         setTimeout(function(){
           if(i % 3 === 0 || i % 5 === 0){
@@ -57,7 +57,7 @@
   }
 
   function showDemo2(){
-    for(var i=3; i<=1000; i+=3){
+    for(var i=3; i<1000; i+=3){
       (function(i, time){
         setTimeout(function(){
           document.getElementById("btn-"+i).classList.add('divisible');
@@ -65,7 +65,7 @@
       })(i, time);
       time += timeIncrement;
     }
-    for(var i=5; i<=1000; i+=5){
+    for(var i=5; i<1000; i+=5){
       (function(i, time){
         setTimeout(function(){
           document.getElementById("btn-"+i).classList.add('divisible');
