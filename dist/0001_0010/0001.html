@@ -1,0 +1,80 @@
+<script src="./0001_0010.bundle.js" type="text/javascript"></script>
+
+<style>
+  .row{
+    width: 80%;
+  }
+  .row .btn{
+    border: 1px solid black;
+    display: inline-block;
+    width: 9%;
+    text-align: center;
+  }
+
+  .divisible{
+    background: red;
+  }
+</style>
+
+<button id="start1">Start demo (Checking divisibility)</button>
+<button id="start2">Start demo (Iterating dividends)</button>
+
+<div id="container-root">
+
+</div>
+
+
+<script>
+  var currentRow;
+  for(var i=1; i<=1000; i++){
+    if( i % 10 === 1){
+      var row = document.createElement("div");
+      row.setAttribute("class", "row row-"+Math.floor(i/10));
+      document.getElementById("container-root").append(row);
+      currentRow = row;
+    }
+
+    var number = document.createElement("div");
+    number.setAttribute('class', 'btn');
+    number.setAttribute('id', 'btn-'+i);
+    number.innerHTML = i;
+    currentRow.append(number);
+  }
+
+  var timeIncrement = 25;
+  var time = 0;
+  function showDemo1(){
+    for(var i=1; i<=1000; i++){
+      (function(i, time){
+        setTimeout(function(){
+          if(i % 3 === 0 || i % 5 === 0){
+            document.getElementById("btn-"+i).classList.add('divisible');
+          }
+        }, time)
+      })(i, time);
+      time += timeIncrement;
+    }
+  }
+
+  function showDemo2(){
+    for(var i=3; i<=1000; i+=3){
+      (function(i, time){
+        setTimeout(function(){
+          document.getElementById("btn-"+i).classList.add('divisible');
+        }, time);
+      })(i, time);
+      time += timeIncrement;
+    }
+    for(var i=5; i<=1000; i+=5){
+      (function(i, time){
+        setTimeout(function(){
+          document.getElementById("btn-"+i).classList.add('divisible');
+        }, time)
+      })(i, time)
+      time += timeIncrement;
+    }
+  }
+
+  document.getElementById("start1").onclick = showDemo1;
+  document.getElementById("start2").onclick = showDemo2;
+</script>

@@ -1,10 +1,10 @@
-import * as a0021 from "../0021/solution";
-import * as a0022 from "../0022/solution";
-import * as a0023 from "../0023/solution";
-import * as a0024 from "../0024/solution";
-import * as a0025 from "../0025/solution";
-import * as a0026 from "../0026/solution";
-import * as a0027 from "../0027/solution";
+import * as a0021 from "../src/solutions/0021/solution";
+import * as a0022 from "../src/solutions/0022/solution";
+import * as a0023 from "../src/solutions/0023/solution";
+import * as a0024 from "../src/solutions/0024/solution";
+import * as a0025 from "../src/solutions/0025/solution";
+import * as a0026 from "../src/solutions/0026/solution";
+import * as a0027 from "../src/solutions/0027/solution";
 
 var assert = require('assert');
 

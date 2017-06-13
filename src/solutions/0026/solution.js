@@ -18,7 +18,7 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle
 in its decimal fraction part.
 */
 
-import {getPrimeFactors} from '../utility/numbers'
+import {getPrimeFactors} from '../../../utility/numbers'
 import bigInt from "big-integer"
 
 export function getSolution(){

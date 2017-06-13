@@ -4,7 +4,7 @@ By listing the first six prime numbers:
 
 What is the 10 001st prime number?
 */
-import {isPrime} from '../utility/numbers'
+import {isPrime} from '../../../utility/numbers'
 
 export function getSolution(n){
   var n = 10001;

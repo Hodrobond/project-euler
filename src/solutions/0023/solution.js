@@ -17,7 +17,7 @@ is less than this limit.
 Find the sum of all the positive integers which cannot be written as the sum
 of two abundant numbers.
 */
-import {getAbundant} from '../utility/numbers';
+import {getAbundant} from '../../../utility/numbers';
 //upper bound: 28123 (inclusive)
 export function getSolution(){
   var upper = 28123;//28123;

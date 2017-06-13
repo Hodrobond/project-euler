@@ -22,7 +22,7 @@ that produces the maximum number of primes for consecutive values of nn,
 starting with n=0n=0.
 */
 import bigInt from "big-integer"
-import {sievePrimes, isPrime} from "../utility/numbers.js";
+import {sievePrimes, isPrime} from "../../../utility/numbers.js";
 
 var primes = sievePrimes(1000000);
 
