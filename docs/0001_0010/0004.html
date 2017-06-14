@@ -1,0 +1,157 @@
+<script src="./0001_0010.bundle.js" type="text/javascript"></script>
+
+<style>
+  #solution-string1, #test-string1, #test-string2, #solution-string2, #answer-string1, #answer-string2{
+    display: inline-block;
+  }
+
+  #test-string1, #test-string2, #solution-string1, #solution-string2{
+    margin-right: 20px;
+  }
+
+  .correct{
+    background: green;
+  }
+
+  .incorrect{
+    background: red;
+  }
+</style>
+
+<button id="start1">Start demo (Split, reverse, join, compare)</button>
+<button id="start2">Start demo (Iterate)</button>
+
+<div id="container-root">
+  <div id="test-string1"></div><div id="solution-string1"></div><div id="answer-string1"></div><br/>
+  <div id="test-string2"></div><div id="solution-string2"></div><div id="answer-string2"></div>
+</div>
+
+
+<script>
+  var palindrome = "1234567890987654321";
+  var palindromeSplit = palindrome.split("");
+  var testString1 = document.getElementById("test-string1");
+  palindromeSplit.forEach(function(current, index, arr){
+    var newSpan = document.createElement("span");
+    newSpan.setAttribute("class", "number index-"+index);
+    newSpan.textContent = current;
+    testString1.append(newSpan);
+  })
+  var notPalindrome = "12345678901987654321";
+  var notPalindromeSplit = notPalindrome.split("");
+  var testString2 = document.getElementById("test-string2");
+  notPalindromeSplit.forEach(function(current, index, arr){
+    var newSpan = document.createElement("span");
+    newSpan.setAttribute("class", "number index-"+index);
+    newSpan.textContent = current;
+    testString2.append(newSpan);
+  })
+
+  function runDemo1(testId, solutionId, answerId){
+    var timer = 0;
+    var testSpans1 = document.getElementById(testId).getElementsByTagName("span");
+    var solutionSpans1 = document.getElementById(solutionId).getElementsByTagName("span");
+    for(var i=0; i<testSpans1.length; i++){
+      (function(i, timer){
+        setTimeout(function(){
+          if(testSpans1[i].innerHTML === solutionSpans1[i].innerHTML){
+            solutionSpans1[i].classList.add('correct');
+            testSpans1[i].classList.add('correct');
+          }
+          else{
+            solutionSpans1[i].classList.add('incorrect');
+            testSpans1[i].classList.add('incorrect');
+            document.getElementById(answerId).innerHTML = "Not a palindrome!"
+          }
+          if(i === testSpans1.length - 1){
+            document.getElementById(answerId).innerHTML = "Palindrome!"
+          }
+        }, timer)
+      })(i, timer)
+      timer += 100;
+      if(testSpans1[i].innerHTML !== solutionSpans1[i].innerHTML){
+        break;//total hack
+      }
+    }
+  }
+
+  function runDemo2(testId, answerId){
+    var timer = 0;
+    var testSpans1 = document.getElementById(testId).getElementsByTagName("span");
+    for(var i=0; i<Math.floor(testSpans1.length/2); i++){
+      (function(i, timer){
+        setTimeout(function(){
+          if(testSpans1[i].innerHTML === testSpans1[testSpans1.length - 1 - i].innerHTML){
+            testSpans1[testSpans1.length - 1 - i].classList.add('correct');
+            testSpans1[i].classList.add('correct');
+            if(i === Math.floor(testSpans1.length/2) - 1){
+              document.getElementById(answerId).innerHTML = "Palindrome!"
+            }
+          }
+          else{
+            testSpans1[testSpans1.length - 1 - i].classList.add('incorrect');
+            testSpans1[i].classList.add('incorrect');
+            document.getElementById(answerId).innerHTML = "Not a palindrome!"
+          }
+        }, timer)
+      })(i, timer)
+      timer += 100;
+      if(testSpans1[i].innerHTML !== testSpans1[testSpans1.length - 1 - i].innerHTML){
+        break;//total hack
+      }
+    }
+  }
+
+  function showDemo1(){
+    //split, reverse, join, compare
+    document.getElementById("answer-string1").innerHTML = "";
+    document.getElementById("answer-string2").innerHTML = "";
+    var spansArr = Array.prototype.slice.call( document.getElementsByTagName("span"), 0 );
+    var spans = spansArr.forEach(function(current, index, arr){
+      current.classList.remove("correct");
+      current.classList.remove("incorrect");
+    })
+
+    var solutionString1 = palindrome.split("").reverse();
+    var solutionLocation1 = document.getElementById("solution-string1");
+    solutionLocation1.innerHTML = "";
+    solutionString1.forEach(function(current, index, arr){
+      var newSpan = document.createElement("span");
+      newSpan.setAttribute("class", "number index-"+index);
+      newSpan.textContent = current;
+      solutionLocation1.append(newSpan);
+    });
+    runDemo1("test-string1", "solution-string1", "answer-string1");
+
+    var solutionString2 = notPalindrome.split("").reverse();
+    var solutionLocation2 = document.getElementById("solution-string2");
+    solutionLocation2.innerHTML = "";
+    solutionString2.forEach(function(current, index, arr){
+      var newSpan = document.createElement("span");
+      newSpan.setAttribute("class", "number index-"+index);
+      newSpan.textContent = current;
+      solutionLocation2.append(newSpan);
+    });
+    runDemo1("test-string2", "solution-string2", "answer-string2");
+
+  }
+
+  function showDemo2(){
+    var spansArr = Array.prototype.slice.call( document.getElementsByTagName("span"), 0 );
+    var spans = spansArr.forEach(function(current, index, arr){
+      current.classList.remove("correct");
+      current.classList.remove("incorrect");
+    })
+    document.getElementById("solution-string1").innerHTML = "";
+    document.getElementById("solution-string2").innerHTML = "";
+    document.getElementById("answer-string1").innerHTML = "";
+    document.getElementById("answer-string2").innerHTML = "";
+    runDemo2("test-string1", "answer-string1");
+    runDemo2("test-string2", "answer-string2");
+
+  }
+
+  document.getElementById("start1").onclick = showDemo1;
+  document.getElementById("start2").onclick = showDemo2;
+
+</script>
