@@ -104,6 +104,7 @@
 
   function showDemo1(){
     //split, reverse, join, compare
+    var timer = 0;
     document.getElementById("answer-string1").innerHTML = "";
     document.getElementById("answer-string2").innerHTML = "";
     var spansArr = Array.prototype.slice.call( document.getElementsByTagName("span"), 0 );
@@ -116,23 +117,35 @@
     var solutionLocation1 = document.getElementById("solution-string1");
     solutionLocation1.innerHTML = "";
     solutionString1.forEach(function(current, index, arr){
-      var newSpan = document.createElement("span");
-      newSpan.setAttribute("class", "number index-"+index);
-      newSpan.textContent = current;
-      solutionLocation1.append(newSpan);
+      setTimeout(function(){
+        var newSpan = document.createElement("span");
+        newSpan.setAttribute("class", "number index-"+index);
+        newSpan.textContent = current;
+        solutionLocation1.append(newSpan);
+      }, timer)
+      timer += 100;
     });
-    runDemo1("test-string1", "solution-string1", "answer-string1");
 
+    setTimeout(function(){
+      runDemo1("test-string1", "solution-string1", "answer-string1");
+    }, timer)
+
+    timer = 0;
     var solutionString2 = notPalindrome.split("").reverse();
     var solutionLocation2 = document.getElementById("solution-string2");
     solutionLocation2.innerHTML = "";
     solutionString2.forEach(function(current, index, arr){
-      var newSpan = document.createElement("span");
-      newSpan.setAttribute("class", "number index-"+index);
-      newSpan.textContent = current;
-      solutionLocation2.append(newSpan);
+      setTimeout(function(){
+        var newSpan = document.createElement("span");
+        newSpan.setAttribute("class", "number index-"+index);
+        newSpan.textContent = current;
+        solutionLocation2.append(newSpan);
+      }, timer)
+      timer += 100;
     });
-    runDemo1("test-string2", "solution-string2", "answer-string2");
+    setTimeout(function(){
+      runDemo1("test-string2", "solution-string2", "answer-string2");
+    }, timer)
 
   }
 
